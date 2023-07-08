@@ -1,0 +1,30 @@
+{
+  "name": "login-api",
+  "version": "1.0.0",
+  "description": "Desarrollo API en NodeJS + Login con ReactJS + JWT",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "Login",
+    "NodeJS",
+    "ReactJS",
+    "jwt"
+  ],
+  "author": "Parraguez Luis",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.1.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "moment": "^2.29.4",
+    "moment-timezone": "^0.5.43",
+    "mongoose": "^6.11.1",
+    "nodemon": "^2.0.22",
+    "uuid": "^9.0.0"
+  }
+}

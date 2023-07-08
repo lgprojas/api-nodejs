@@ -1,0 +1,4 @@
+Dependencias por instalar:
+
+npm i express cors nodemon
+npm i jsonwebtoken
