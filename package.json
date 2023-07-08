@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
+    "build": "webpack --config webpack.config.js",
     "dev": "nodemon app.js"
   },
   "keywords": [
