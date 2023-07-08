@@ -25,6 +25,9 @@
     "moment-timezone": "^0.5.43",
     "mongoose": "^6.11.1",
     "nodemon": "^2.0.22",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }
