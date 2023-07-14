@@ -1,6 +1,5 @@
 //const { ObjectId } = require('bson');
 const mongoose = require('mongoose');
-const { isStringObject } = require('util/types');
 const Schema = mongoose.Schema;
 
 const UsuarioSchema = new Schema({
