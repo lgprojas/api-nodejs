@@ -14,7 +14,7 @@ const generateToken = ({ id, email }) => {
     return token
 }
 
-const verifyToken = async(req, res, next) => {
+const verifyToken = (req, res, next) => {
     const token_key = process.env.TOKEN_KEY;
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
@@ -22,7 +22,7 @@ const verifyToken = async(req, res, next) => {
     
     if(token==null)
         return res.status(401).send("Token requerido");
-    await jwt.verify(token, token_key, (err, user) => {
+        jwt.verify(token, token_key, (err, user) => {
         if(err) return res.status(403).send('Token inválido');
         console.log(user);
         req.user = user;

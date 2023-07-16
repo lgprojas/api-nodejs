@@ -1,8 +1,8 @@
 const LoginModel = require('../Models/loginModel');
 
-const createNewLogin = (newLogin) => {
+const createNewLogin = async(newLogin) => {
 
-    const usuario = LoginModel.getUsuarioLogin(newLogin);
+    const usuario = await LoginModel.getUsuarioLogin(newLogin);
     return usuario;
 };
 
