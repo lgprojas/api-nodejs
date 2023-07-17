@@ -8,7 +8,7 @@ const getUsuarioLogin = async(newLogin) => {
     console.log(clave)
 
     try{
-        const datosUsu = await Login.findOne({ "usuario": usuario }).lean();//quita state, etc
+        const datosUsu = await Login.findOne({ usuario: usuario }).exec();//quita state, etc
         if(!datosUsu){
             throw {
                 status: 404,
