@@ -4,6 +4,8 @@ const { generateToken } = require('../Middleware/jwt');
 
 const loginUsu = (req, res) => {
 
+    return "loginController"
+    /*
     const usuario = req.body.usuario;
     const clave = req.body.clave;
 
@@ -27,6 +29,7 @@ const loginUsu = (req, res) => {
     const datosUsuToken = {nombre, email, token}
 
     res.status(201).send({ status: "OK", data: datosUsuToken });
+    */
 }
 
 module.exports = {loginUsu}
