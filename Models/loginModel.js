@@ -12,9 +12,9 @@ const getUsuarioLogin = (newLogin) => {
     //return usuario + " | " + clave
 
     //try{
-        const datosUsu = Login.findOne({ usuario: usuario }).exec();//quita state, etc
+        const datosUsu = Login.findOne({ usuario: `${usuario}` }).exec();//quita state, etc
 
-        return usuario
+        return datosUsu
     /*
         if(!datosUsu){
             throw {
