@@ -9,10 +9,13 @@ const getUsuarioLogin = (newLogin) => {
     //console.log(usuario)
     //console.log(clave)
 
-    return usuario + " | " + clave
-/*
-    try{
+    //return usuario + " | " + clave
+
+    //try{
         const datosUsu = Login.findOne({ usuario: usuario }).exec();//quita state, etc
+
+        return datosUsu
+    /*
         if(!datosUsu){
             throw {
                 status: 404,
