@@ -12,7 +12,7 @@ const getUsuarioLogin = (newLogin) => {
     //return usuario + " | " + clave
 
     //try{
-        const datosUsu = Login.findOne({ "usuario": usuario }).exec();//quita state, etc
+        const datosUsu = Login.findOne({ "usuario": usuario }).lean();//quita state, etc
 
         return datosUsu
     /*
