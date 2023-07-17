@@ -11,10 +11,13 @@ const getUsuarioLogin = async(newLogin) => {
 
     //return usuario + " | " + clave
 
-    //try{
+    try{
         const datosUsu = await Login.findOne({ "usuario": usuario }).lean();//quita state, etc
 
         return datosUsu
+    } catch (error) {
+        throw { status: error?.status || 500, message: error?.message || error };
+    }
     /*
         if(!datosUsu){
             throw {
