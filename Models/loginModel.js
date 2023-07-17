@@ -14,7 +14,7 @@ const getUsuarioLogin = (newLogin) => {
     //try{
         const datosUsu = Login.findOne({ usuario: usuario }).exec();//quita state, etc
 
-        return datosUsu
+        return usuario
     /*
         if(!datosUsu){
             throw {
