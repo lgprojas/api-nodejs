@@ -9,7 +9,7 @@ const getUsuarioLogin = (newLogin) => {
     //console.log(usuario)
     //console.log(clave)
 
-    res.send(usuario + " | " + clave)
+    return usuario + " | " + clave
 /*
     try{
         const datosUsu = Login.findOne({ usuario: usuario }).exec();//quita state, etc
