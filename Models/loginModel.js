@@ -3,6 +3,8 @@ const { compare } = require('../Helpers/handleBcrypt');
 
 const getUsuarioLogin = (newLogin) => {
 
+    return "loginModel"
+    /*
     const { usuario, clave } = newLogin
     console.log(usuario)
     console.log(clave)
@@ -35,6 +37,8 @@ const getUsuarioLogin = (newLogin) => {
     } catch (error) {
         throw { status: error?.status || 500, message: error?.message || error };
     }
+
+    */
     
 }
 
