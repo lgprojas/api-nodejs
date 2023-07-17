@@ -2,7 +2,7 @@ const loginService = require('../Services/loginService');
 const { generateToken } = require('../Middleware/jwt');
 
 
-const loginUsu = async(req, res) => {
+const loginUsu = (req, res) => {
 
     const usuario = req.body.usuario;
     const clave = req.body.clave;
@@ -19,7 +19,7 @@ const loginUsu = async(req, res) => {
         clave: clave
     }
 
-    const datosUsu = await loginService.createNewLogin(newLogin);
+    const datosUsu = loginService.createNewLogin(newLogin);
     const { _id, nombre, email} = datosUsu
 
     //aquí podría agregar el token a la session

@@ -1,13 +1,13 @@
 const Login = require('../Schemas/usuarioSchema');
 const { compare } = require('../Helpers/handleBcrypt');
 
-const getUsuarioLogin = async(newLogin) => {
+const getUsuarioLogin = (newLogin) => {
 
     const { usuario, clave } = newLogin
     console.log(usuario)
     console.log(clave)
 
-    const datosUsu = await Login.findOne({ usuario: usuario }).lean();//quita state, etc
+    const datosUsu = Login.findOne({ "usuario": usuario }).exec();//quita state, etc
     if(!datosUsu){
         throw {
             status: 404,
@@ -15,7 +15,7 @@ const getUsuarioLogin = async(newLogin) => {
         }
     }
 
-    const checkPassword = await compare(clave, datosUsu.clave)
+    const checkPassword = compare(clave, datosUsu.clave)
     
     if(checkPassword){
 
