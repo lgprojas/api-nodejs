@@ -1,7 +1,7 @@
 const Login = require('../Schemas/usuarioSchema');
 const { compare } = require('../Helpers/handleBcrypt');
 
-const getUsuarioLogin = (newLogin) => {
+const getUsuarioLogin = async(newLogin) => {
 
     //return "loginModel"
     
@@ -12,7 +12,7 @@ const getUsuarioLogin = (newLogin) => {
     //return usuario + " | " + clave
 
     //try{
-        const datosUsu = Login.findOne({ usuario: `${usuario}` }).exec();//quita state, etc
+        const datosUsu = await Login.findOne({ usuario: usuario }).exec();//quita state, etc
 
         return datosUsu
     /*
