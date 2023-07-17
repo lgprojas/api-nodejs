@@ -4,7 +4,7 @@ const { generateToken } = require('../Middleware/jwt');
 
 const loginUsu = (req, res) => {
 
-    return "loginController"
+    res.send("loginController")
     /*
     const usuario = req.body.usuario;
     const clave = req.body.clave;
