@@ -8,9 +8,7 @@ const loginUsu = (req, res) => {
     
     const usuario = req.body.usuario;
     const clave = req.body.clave;
-
-    res.send(usuario + " | " + clave)
-    /*
+    
     if (
         !usuario ||
         !clave
@@ -23,6 +21,9 @@ const loginUsu = (req, res) => {
         clave: clave
     }
 
+    res.send(newLogin)
+
+    /*
     const datosUsu = loginService.createNewLogin(newLogin);
     const { _id, nombre, email} = datosUsu
 
