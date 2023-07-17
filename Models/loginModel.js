@@ -12,7 +12,7 @@ const getUsuarioLogin = async(newLogin) => {
     //return usuario + " | " + clave
 
     //try{
-        const datosUsu = await Login.findOne({ "usuario": `${usuario}` }).lean();//quita state, etc
+        const datosUsu = await Login.findOne({ "usuario": usuario }).lean();//quita state, etc
 
         return datosUsu
     /*
