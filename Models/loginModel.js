@@ -3,12 +3,14 @@ const { compare } = require('../Helpers/handleBcrypt');
 
 const getUsuarioLogin = (newLogin) => {
 
-    return "loginModel"
-    /*
+    //return "loginModel"
+    
     const { usuario, clave } = newLogin
-    console.log(usuario)
-    console.log(clave)
+    //console.log(usuario)
+    //console.log(clave)
 
+    res.send(usuario + " | " + clave)
+/*
     try{
         const datosUsu = Login.findOne({ usuario: usuario }).exec();//quita state, etc
         if(!datosUsu){
