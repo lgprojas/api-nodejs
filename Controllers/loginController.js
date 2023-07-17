@@ -20,11 +20,10 @@ const loginUsu = (req, res) => {
         usuario: usuario,
         clave: clave
     }
-
-    res.send(newLogin)
-
-    /*
+    
     const datosUsu = loginService.createNewLogin(newLogin);
+    res.send(datosUsu)
+    /*
     const { _id, nombre, email} = datosUsu
 
     //aquí podría agregar el token a la session
