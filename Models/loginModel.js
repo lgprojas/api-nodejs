@@ -12,14 +12,8 @@ const getUsuarioLogin = async(newLogin) => {
     //return usuario + " | " + clave
 
     try{
-        const datosUsu = await Login.find({ usuario: usuario }, function (err, docs) {
-            if(docs){
-                return datosUsu
-            }else{
-                return err
-            }
-        });
-
+        const datosUsu = await Login.find({ }).lean();
+        return datosUsu
         
     } catch (error) {
         throw { status: error?.status || 500, message: error?.message || error };
