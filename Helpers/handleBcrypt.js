@@ -6,7 +6,8 @@ const encrypt = (clave) => {
 }
 
 const compare = (passwordLogin, passwordEncrypt) => {
-    return bcrypt.compare(passwordLogin, passwordEncrypt)
+    const valida = bcrypt.compare(passwordLogin, passwordEncrypt)
+    return valida
 }
 
 module.exports = {
