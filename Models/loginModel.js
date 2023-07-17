@@ -15,7 +15,7 @@ const getUsuarioLogin = async(newLogin) => {
         }
     }
 
-    const checkPassword = compare(clave, datosUsu.clave)
+    const checkPassword = await compare(clave, datosUsu.clave)
     
     if(checkPassword){
 
