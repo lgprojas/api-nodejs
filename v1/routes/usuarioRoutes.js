@@ -1,4 +1,5 @@
 const Router  = require("express");
+const { verifyToken } = require('../../Middleware/jwt');
 const router = Router();
 
 const usuarioController = require('../../Controllers/usuarioController')
@@ -9,7 +10,7 @@ const usuarioController = require('../../Controllers/usuarioController')
 
 router.get('/', usuarioController.listarUsus);
 
-router.get('/:id', usuarioController.getUsu);
+router.get('/:id', verifyToken, usuarioController.getUsu);
 
 router.post('/', usuarioController.insertUsu);
 
