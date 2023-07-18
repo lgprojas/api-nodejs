@@ -15,12 +15,12 @@ const getUsuarioLogin = async(newLogin) => {
         
     
     const datosUsu = await Login.findOne({ usuario: usuario}).exec()
-    const { email } = datosUsu        
+    /*const { email } = datosUsu        
     console.log(email)
     return datosUsu
     }catch (error) {
         throw { status: error?.status || 500, message: error?.message || error };
-    }
+    }*/
   /*
     try{
         
@@ -28,7 +28,7 @@ const getUsuarioLogin = async(newLogin) => {
     } catch (error) {
         throw { status: error?.status || 500, message: error?.message || error };
     }
-  
+  */
         if(!datosUsu){
             throw {
                 status: 404,
@@ -56,7 +56,7 @@ const getUsuarioLogin = async(newLogin) => {
         throw { status: error?.status || 500, message: error?.message || error };
     }
 
-    */
+    
     
 }
 
