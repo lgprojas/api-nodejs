@@ -4,9 +4,12 @@ require('dotenv').config();
 
 const generateToken = ({ id, email }) => {
 
-    return email
-    /*
+    
+    
     const token_key = process.env.TOKEN_KEY;
+    return token_key
+
+    /*
     const idUser = new ObjectId(id).valueOf()//quita el ObjectId
 
     const token = jwt.sign(
