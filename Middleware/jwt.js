@@ -2,11 +2,11 @@ const { ObjectId } = require('bson');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-const generateToken = ({ id, email }) => {
+const generateToken = async({ id, email }) => {
     const token_key = process.env.TOKEN_KEY;
-    const idUser = new ObjectId(id).valueOf()//quita el ObjectId
+    const idUser = await new ObjectId(id).valueOf()//quita el ObjectId
 
-    const token = jwt.sign(
+    const token = await jwt.sign(
         {userId:idUser, email:email},
         token_key,
         {expiresIn: "2h"}
