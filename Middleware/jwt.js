@@ -4,12 +4,8 @@ require('dotenv').config();
 
 const generateToken = ({ id, email }) => {
 
-    
-    
     const token_key = process.env.TOKEN_KEY;
-    return token_key
 
-    /*
     const idUser = new ObjectId(id).valueOf()//quita el ObjectId
 
     const token = jwt.sign(
@@ -17,7 +13,7 @@ const generateToken = ({ id, email }) => {
         token_key,
         {expiresIn: "2h"}
     );
-    return token*/
+    return token
 }
 
 const verifyToken = (req, res, next) => {

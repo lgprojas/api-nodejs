@@ -31,12 +31,12 @@ const loginUsu = async(req, res) => {
     //aquí para abajo es el error
     //aquí podría agregar el token a la session
     const token = generateToken({id: _id, email: email})
-    res.status(201).send({ status: "OK", data: token })
+    //res.status(201).send({ status: "OK", data: token })
 
-    /*const datosUsuToken = {nombre, email, token}
+    const datosUsuToken = {nombre, email, token}
 
     res.status(201).send({ status: "OK", data: datosUsuToken });
-    */
+    
     
 }
 
