@@ -1,4 +1,4 @@
-const Login = require('../Schemas/usuarioSchema');
+const {Login} = require('../Schemas/usuarioSchema');
 const { compare } = require('../Helpers/handleBcrypt');
 
 const getUsuarioLogin = async(newLogin) => {
@@ -8,17 +8,27 @@ const getUsuarioLogin = async(newLogin) => {
     const { usuario, clave } = newLogin
     //console.log(usuario)
     //console.log(clave)
-
+    
     //return usuario + " | " + clave
-
     try{
-        const datosUsu = await Login.find({ }).lean();
-        return datosUsu
+        
+        
+    
+    const datosUsu = await Login.findOne({ usuario: usuario}).exec()
+    const { email } = datosUsu        
+    console.log(email)
+    return datosUsu
+    }catch (error) {
+        throw { status: error?.status || 500, message: error?.message || error };
+    }
+  /*
+    try{
+        
         
     } catch (error) {
         throw { status: error?.status || 500, message: error?.message || error };
     }
-    /*
+  
         if(!datosUsu){
             throw {
                 status: 404,

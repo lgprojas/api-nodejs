@@ -1,8 +1,15 @@
 //const { ObjectId } = require('bson');
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+//const Schema = mongoose.Schema;
 
-const UsuarioSchema = new Schema({
+const LoginSchema = new mongoose.Schema({
+    nombre: String,
+    email: String,
+    usuario: String,
+    clave: String,
+},{versionKey: false,});
+
+const UsuarioSchema = new mongoose.Schema({
     nombre: String,
     email: String,
     codigo: String,
@@ -12,8 +19,13 @@ const UsuarioSchema = new Schema({
     updatedAt: String,
 },{versionKey: false,});
 
-module.exports = mongoose.model('Usuarios', UsuarioSchema);
+const login = mongoose.model('Login', LoginSchema, 'usuarios');
+const usuarios = mongoose.model('Usuario', UsuarioSchema, 'usuarios');
 
+module.exports={
+    Login:login,
+    Usuario:usuarios
+}
 
 //const mongoose = require('mongoose');
 //const {Schema, model} = require('mongoose');

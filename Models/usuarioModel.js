@@ -1,4 +1,4 @@
-const Usuario = require('../Schemas/usuarioSchema');
+const {Usuario} = require('../Schemas/usuarioSchema');
 const {ObjectId} = require('mongodb');
 const moment = require('moment-timezone');
 
