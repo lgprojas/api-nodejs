@@ -24,15 +24,20 @@ const loginUsu = async(req, res) => {
     
     const datosUsu = await loginService.createNewLogin(newLogin);
     
-    const { _id, nombre, email} = datosUsu
+    if(datosUsu){
+        const { _id, nombre, email} = datosUsu
 
-    //aquí podría agregar el token a la session
-    const token = generateToken({id: _id, email: email})
+        //aquí podría agregar el token a la session
+        const token = generateToken({id: _id, email: email})
+    
+    
+        const datosUsuToken = {nombre, email, token}
+    
+        res.status(200).send({ status: "OK", data: datosUsuToken });
+    }else{
+        res.status(204).send();
+    }
 
-
-    const datosUsuToken = {nombre, email, token}
-
-    res.status(201).send({ status: "OK", data: datosUsuToken });
     
     
 }
