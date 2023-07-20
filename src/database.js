@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-
 // const { MONGODB_HOST, MONGODB_DATABASE } =process.env;
 // const MONGODB_URI = `mongodb://${MONGODB_HOST}/${MONGODB_DATABASE}`;
 
