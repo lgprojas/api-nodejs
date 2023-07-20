@@ -18,9 +18,9 @@ const Usuario = require('./Schemas/usuarioSchema.js')
 //const Producto = require('./Models/ProductoModel.js')
 
 //Con Routes
-const v1Router = require("./v1/Routes");
-const v1RouterLogin = require("./v1/Routes/loginRoutes");
-const v1RouterUsu = require("./v1/Routes/usuarioRoutes");
+const v1Router = require("./src/v1/Routes");
+const v1RouterLogin = require("./src/v1/Routes/loginRoutes");
+const v1RouterUsu = require("./src/v1/Routes/usuarioRoutes");
 /*
 const v1RouterProd = require("./v1/routes/productoRoutes");
 const ProductoModel = require("./Schemas/productoModel");
