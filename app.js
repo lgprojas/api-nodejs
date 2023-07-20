@@ -3,7 +3,7 @@ const cors = require("cors");
 //const { encrypt, compare } = require('./Helpers/handleBcrypt');
 const { v4: uuidv4 } = require('uuid');
 
-require('./database');
+require('./src/database');
 
 require('dotenv').config();
 // const token_key = process.env.TOKEN_KEY;
@@ -18,9 +18,9 @@ const Usuario = require('./Schemas/usuarioSchema.js')
 //const Producto = require('./Models/ProductoModel.js')
 
 //Con Routes
-const v1Router = require("./v1/routes");
-const v1RouterLogin = require("./v1/routes/loginRoutes");
-const v1RouterUsu = require("./v1/routes/usuarioRoutes");
+const v1Router = require("./v1/Routes");
+const v1RouterLogin = require("./v1/Routes/loginRoutes");
+const v1RouterUsu = require("./v1/Routes/usuarioRoutes");
 /*
 const v1RouterProd = require("./v1/routes/productoRoutes");
 const ProductoModel = require("./Schemas/productoModel");
