@@ -5,7 +5,9 @@ require('dotenv').config();
 // const { MONGODB_HOST, MONGODB_DATABASE } =process.env;
 // const MONGODB_URI = `mongodb://${MONGODB_HOST}/${MONGODB_DATABASE}`;
 
-const MONGODB_URI = `mongodb+srv://lgprojas:7v5LLErB9YFOKnK6@cluster0.8vqmh25.mongodb.net/api?retryWrites=true&w=majority`;
+
+ const { MONGODB_HOST_WEB, MONGODB_USU_WEB, MONGODB_PASS_WEB, MONGODB_DATABASE_WEB } =process.env;
+const MONGODB_URI = `${MONGODB_HOST_WEB}://${MONGODB_USU_WEB}:${MONGODB_PASS_WEB}@cluster0.8vqmh25.mongodb.net/${MONGODB_DATABASE_WEB}?retryWrites=true&w=majority`;
 
 mongoose.set('strictQuery', true);
 mongoose.connect(MONGODB_URI, {
