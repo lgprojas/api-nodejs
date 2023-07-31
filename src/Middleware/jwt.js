@@ -49,9 +49,9 @@ const verifyToken = (req, res, next) => {
 
 const verifyRefreshToken = async(req, res) => {
     const refresh_token_key = process.env.REFRESH_TOKEN_KEY;
-    const refreshToken = req;
+    const refreshToken = req.refreshToken;
 
-    return refreshToken
+    return res.send(refreshToken)
     
     if(refreshToken==null)
         return res.status(401).send("Refresh Token requerido");
