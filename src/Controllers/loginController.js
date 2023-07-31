@@ -52,7 +52,7 @@ const refreshToken = async(req, res) => {
     }
 
     try {
-       console.log(refreshToken)
+        res.status(200).json({ data: refreshToken });
 
     } catch (error) {
         return res.status(400).json({ message: "[Refresh] Something goes wrong 02!" });
