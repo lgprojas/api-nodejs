@@ -6,4 +6,10 @@ const createNewLogin = (newLogin) => {
     return usuario;
 };
 
-module.exports = { createNewLogin }
+const createNewToken = (emailUsu) => {
+
+    const newRefreshToken = LoginModel.newRefreshToken(emailUsu);
+    return newRefreshToken;
+};
+
+module.exports = { createNewLogin, createNewToken }

@@ -47,22 +47,17 @@ const verifyToken = (req, res, next) => {
     });
 }
 
-const verifyRefreshToken = (req, res, next) => {
+const verifyRefreshToken = async(req, res) => {
     const refresh_token_key = process.env.REFRESH_TOKEN_KEY;
-    // const authHeader = req.headers['authorization'];
-    // const refreshToken = authHeader && authHeader.split(' ')[1];
-    const refreshToken = localStorage.getItem('refresh');
-    console.log(refreshToken);
+    const refreshToken = req.refreshToken;
     
     if(refreshToken==null)
         return res.status(401).send("Refresh Token requerido");
 
     jwt.verify(refreshToken, refresh_token_key, (err, user) => {
         if(err) return res.status(403).send('Refresh Token inválido');
-        
-        console.log(user);
-        req.user = user;
-        next();
+
+        res.email = email;
     });
 }
 

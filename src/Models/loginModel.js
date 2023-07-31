@@ -57,4 +57,26 @@ const getUsuarioLogin = async(newLogin) => {
     
 }
 
-module.exports = { getUsuarioLogin }
+const newRefreshToken = async(emailUsu) => {
+
+    try{
+
+        const datosUsu = await Login.findOne({ email: emailUsu}).exec()
+
+        if(!datosUsu){
+            return;
+        }
+
+        const {_id, nombre, email} = datosUsu
+            //const nDatos = {...datosUsu, token}
+            const nDatos = {_id, nombre, email}
+            return nDatos;
+
+    } catch (error) {
+        throw { status: error?.status || 500, message: error?.message || error };
+    }
+
+
+}
+
+module.exports = { getUsuarioLogin, newRefreshToken }

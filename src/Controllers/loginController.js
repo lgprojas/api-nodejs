@@ -52,7 +52,19 @@ const refreshToken = async(req, res) => {
     }
 
     try {
-        res.status(200).json({ data: refreshToken });
+        //res.status(200).json({ data: refreshToken });
+        //se debe verificar el refreshToken
+        const verifyResult = await verifyRefreshToken(refreshToken)
+        //consulto si existe el email del token 
+        const datosUsu = await loginService.createNewToken(verifyResult);
+
+        if(datosUsu){
+            const { _id, nombre, email} = datosUsu
+
+            const newToken = generateToken({id: _id, email: email})
+
+            res.status(200).json({ message: "OK", token: newToken });
+        }
 
     } catch (error) {
         return res.status(400).json({ message: "[Refresh] Something goes wrong 02!" });
