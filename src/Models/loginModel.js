@@ -57,17 +57,21 @@ const getUsuarioLogin = async(newLogin) => {
     
 }
 
-const newRefreshToken = async(emailUsu) => {
+const newRefreshToken = async(dUsu) => {
+
+    
 
     try{
 
-        const datosUsu = await Login.findOne({ email: emailUsu}).exec()
+        const {email} = dUsu
+
+        const datosUsu = await Login.findOne({ email: email}).exec()
 
         if(!datosUsu){
             return;
         }
 
-        const {_id, nombre, email} = datosUsu
+        const {_id, nombre} = datosUsu
             //const nDatos = {...datosUsu, token}
             const nDatos = {_id, nombre, email}
             return nDatos;

@@ -47,20 +47,21 @@ const verifyToken = (req, res, next) => {
     });
 }
 
-const verifyRefreshToken = async(req, res) => {
+const verifyRefreshToken = (req, res) => {
     const refresh_token_key = process.env.REFRESH_TOKEN_KEY;
-    const refreshToken = req.refreshToken;
+    const refreshToken = req;
 
-    return res.send(refreshToken)
     
     if(refreshToken==null)
         return res.status(401).send("Refresh Token requerido");
 
-    jwt.verify(refreshToken, refresh_token_key, (err, user) => {
+    const datosUsu = jwt.verify(refreshToken, refresh_token_key, (err, user) => {
         if(err) return res.status(403).send('Refresh Token inválido');
 
-        res.user = user;
+        return user
     });
+
+    return datosUsu
 }
 
 module.exports = {

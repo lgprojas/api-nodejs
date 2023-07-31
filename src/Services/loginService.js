@@ -6,9 +6,9 @@ const createNewLogin = (newLogin) => {
     return usuario;
 };
 
-const createNewToken = (emailUsu) => {
+const createNewToken = (datosUsu) => {
 
-    const newRefreshToken = LoginModel.newRefreshToken(emailUsu);
+    const newRefreshToken = LoginModel.newRefreshToken(datosUsu);
     return newRefreshToken;
 };
 
