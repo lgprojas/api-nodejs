@@ -57,7 +57,7 @@ const verifyRefreshToken = async(req, res) => {
     jwt.verify(refreshToken, refresh_token_key, (err, user) => {
         if(err) return res.status(403).send('Refresh Token inválido');
 
-        res.email = email;
+        res.user = user;
     });
 }
 
