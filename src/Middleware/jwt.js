@@ -49,7 +49,7 @@ const verifyToken = (req, res, next) => {
 
 const verifyRefreshToken = async(req, res) => {
     const refresh_token_key = process.env.REFRESH_TOKEN_KEY;
-    const refreshToken = req.refreshToken;
+    const refreshToken = req;
 
     return refreshToken
     
