@@ -56,6 +56,10 @@ const refreshToken = async(req, res) => {
         //se debe verificar el refreshToken
         const verifyResult = verifyRefreshToken(refreshToken);
 
+        if(!(verifyResult)){
+            res.status(400).json({ message: "[Refresh] RefreshToken incorrect!" });
+        }
+
         //res.status(200).json({ data: verifyResult });
         //consulto si existe el email del token 
         const datosUsu = await loginService.createNewToken(verifyResult);
