@@ -51,14 +51,15 @@ const refreshToken = async(req, res) => {
         res.status(400).json({ message: "[Refresh] Something goes wrong!" });
     }
 
+    const verifyResult = verifyRefreshToken(refreshToken);
+
+    if(!(verifyResult)){
+        res.status(400).json({ message: "[Refresh] RefreshToken incorrect!" });
+    }
+
     try {
         //res.status(200).json({ data: refreshToken });
-        //se debe verificar el refreshToken
-        const verifyResult = verifyRefreshToken(refreshToken);
-
-        if(!(verifyResult)){
-            res.status(400).json({ message: "[Refresh] RefreshToken incorrect!" });
-        }
+        //se debe verificar el refreshToke        
 
         //res.status(200).json({ data: verifyResult });
         //consulto si existe el email del token 
