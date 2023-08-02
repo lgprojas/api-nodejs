@@ -56,7 +56,7 @@ const verifyRefreshToken = (req, res) => {
         return res.status(401).send("Refresh Token requerido");
 
     const datosUsu = jwt.verify(refreshToken, refresh_token_key, (err, user) => {
-        if(err) return res.status(403).send('Refresh Token inválido');
+        if(err) return;
 
         return user
     });
