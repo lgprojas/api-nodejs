@@ -45,7 +45,12 @@ const loginUsu = async(req, res) => {
     
         res.status(200).send({ status: "OK", data: datosUsuToken });
     }else{
-        res.status(204).send();
+        res.status(204).send({ 
+            status: "FAILED",
+            data: {
+                    error: "User does not exist"
+                  },
+            });
     }
 
     
