@@ -30,7 +30,10 @@ const getUsuarioLogin = async(newLogin) => {
     }
   */
         if(!datosUsu){
-            return;
+            throw {
+                status: 404,
+                message: "User not found"
+            }
         }
 
         const checkPassword = compare(clave, datosUsu.clave)
