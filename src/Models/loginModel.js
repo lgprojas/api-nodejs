@@ -10,11 +10,13 @@ const getUsuarioLogin = async(newLogin) => {
     //console.log(clave)
     
     //return usuario + " | " + clave
+    const password = await encrypt(clave);
+    
     try{
         
         
     
-    const datosUsu = await Login.findOne({ usuario: usuario}).exec()
+    const datosUsu = await Login.findOne({ usuario: usuario, clave: password }).exec()
     /*const { email } = datosUsu        
     console.log(email)
     return datosUsu
