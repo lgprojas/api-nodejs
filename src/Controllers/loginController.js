@@ -14,6 +14,15 @@ const loginUsu = async(req, res) => {
         !usuario ||
         !clave
     ) {
+        res
+        .status(400)
+        .send({
+            status: "FAILED",
+            data: {
+            error:
+                "One of the values is empty",
+            },
+        });
         return;
     }
 
