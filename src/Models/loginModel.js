@@ -14,7 +14,7 @@ const getUsuarioLogin = async(req, res) => {
     //return usuario + " | " + clave
 
     
-    const datosUsu = await Login.findOne({ usuario: usuario, clave: `${password}` }, function (err, data) {
+    const datosUsu = await Login.findOne({ usuario: usuario }, function (err, data) {
         if(err){
             return err
         }else{
