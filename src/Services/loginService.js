@@ -1,5 +1,5 @@
 const LoginModel = require('../Models/loginModel');
-const { encrypt } = require('../Helpers/handleBcrypt');
+
 
 const createNewLogin = (newLogin) => {
 

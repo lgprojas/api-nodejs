@@ -1,5 +1,5 @@
 const {Login} = require('../Schemas/usuarioSchema');
-const { compare } = require('../Helpers/handleBcrypt');
+const { compare, encrypt } = require('../Helpers/handleBcrypt');
 
 const getUsuarioLogin = async(newLogin) => {
 
@@ -7,7 +7,7 @@ const getUsuarioLogin = async(newLogin) => {
     
     const { usuario, clave } = newLogin
 
-    const password = encrypt(clave);
+    const password = await encrypt(clave);
     console.log(password)
     return clave;
     //console.log(usuario)
