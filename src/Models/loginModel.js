@@ -1,5 +1,5 @@
 const {Login} = require('../Schemas/usuarioSchema');
-const { compare, encrypt } = require('../Helpers/handleBcrypt');
+const { compare } = require('../Helpers/handleBcrypt');
 
 const getUsuarioLogin = async(req, res) => {
 
@@ -7,16 +7,8 @@ const getUsuarioLogin = async(req, res) => {
     
     const { usuario, clave } = req
 
-    const password = await encrypt(clave);
-    return password + "-" + clave
-    //console.log(usuario)
-    //console.log(clave)
-    
-    //return usuario + " | " + clave
+    const datosUsu = await Login.findOne({ usuario: usuario });
 
-    
-    const datosUsu = await Login.findOne({ usuario: usuario, clave: password });
-    return datosUsu
     if(datosUsu === null){
         throw {
             status: 404,
