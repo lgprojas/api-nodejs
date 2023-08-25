@@ -32,7 +32,9 @@ const loginUsu = async(req, res) => {
     }
     
     const datosUsu = await loginService.createNewLogin(newLogin);
-    
+    res.status(200).send({ status: "OK", data: datosUsu });
+
+    /*
     if(datosUsu){
         const { _id, nombre, email} = datosUsu
 
@@ -53,7 +55,7 @@ const loginUsu = async(req, res) => {
             });
     }
 
-    
+    */
     
 }
 
