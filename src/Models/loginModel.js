@@ -8,8 +8,7 @@ const getUsuarioLogin = async(newLogin) => {
     const { usuario, clave } = newLogin
 
     const password = await encrypt(clave);
-    console.log(password)
-    return clave;
+
     //console.log(usuario)
     //console.log(clave)
     
@@ -17,7 +16,6 @@ const getUsuarioLogin = async(newLogin) => {
 
     
     const datosUsu = await Login.findOne({ usuario: usuario, clave: password }).exec()
-    console.log(datosUsu)
 
     if(!datosUsu){
         throw {
@@ -46,7 +44,7 @@ const getUsuarioLogin = async(newLogin) => {
     }
   */
 
-        const checkPassword = compare(clave, datosUsu.clave)
+        const checkPassword = await compare(clave, datosUsu.clave)
         
         if(checkPassword){
 
