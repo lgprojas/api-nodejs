@@ -8,12 +8,13 @@ const getUsuarioLogin = async(newLogin) => {
     const { usuario, clave } = newLogin
 
     const password = await encrypt(clave);
-
+    return password;
     //console.log(usuario)
     //console.log(clave)
     
     //return usuario + " | " + clave
 
+    
     const datosUsu = await Login.findOne({ usuario: usuario, clave: password }).exec()
     console.log(datosUsu)
 
