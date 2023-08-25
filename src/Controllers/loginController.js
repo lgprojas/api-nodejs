@@ -31,11 +31,12 @@ const loginUsu = async(req, res) => {
         clave: clave
     }
     
+    try{
     const datosUsu = await loginService.createNewLogin(newLogin);
-    res.status(200).send({ status: "OK", data: datosUsu });
+    //res.status(200).send({ status: "OK", data: datosUsu });
 
-    /*
-    if(datosUsu){
+ 
+    //if(datosUsu){
         const { _id, nombre, email} = datosUsu
 
         //aquí podría agregar el token a la session
@@ -46,16 +47,13 @@ const loginUsu = async(req, res) => {
         const datosUsuToken = {nombre, email, token, refreshToken}
     
         res.status(200).send({ status: "OK", data: datosUsuToken });
-    }else{
-        res.status(204).send({ 
-            status: "FAILED",
-            data: {
-                    error: "User does not exist"
-                  },
-            });
+    }catch(error){
+        res
+          .status(error?.status || 500)
+          .send({ status: "FAILED", data: { error: error?.message || error } });
     }
 
-    */
+    
     
 }
 

@@ -10,9 +10,10 @@ const getUsuarioLogin = async(req, res) => {
     const datosUsu = await Login.findOne({ usuario: usuario });
 
     if(datosUsu === null){
-        res
-          .status(error?.status || 500)
-          .send({ status: "User not found", data: { error: error?.message || error } });
+        throw {
+            status: 404,
+            message: "User not found"
+        }
     }
 
     try{
@@ -45,9 +46,10 @@ const getUsuarioLogin = async(req, res) => {
             return nDatos;
 
         }else{
-            res
-            .status(error?.status || 500)
-            .send({ status: "Password incorrect", data: { error: error?.message || error } });
+            throw {
+                status: 409,
+                message: "Invalid password"
+            }
         }
 
     } catch (error) {
