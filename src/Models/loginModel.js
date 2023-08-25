@@ -5,7 +5,10 @@ const getUsuarioLogin = async(newLogin) => {
 
     //return "loginModel"
     
-    const { usuario, password } = newLogin
+    const { usuario, clave } = newLogin
+
+    const password = await encrypt(clave);
+
     //console.log(usuario)
     //console.log(clave)
     
