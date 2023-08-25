@@ -17,7 +17,7 @@ const getUsuarioLogin = async(newLogin) => {
     
     const datosUsu = await Login.findOne({ usuario: usuario, clave: password }).exec()
 
-    if(!datosUsu){
+    if(datosUsu === null){
         throw {
             status: 404,
             message: "User not found"
