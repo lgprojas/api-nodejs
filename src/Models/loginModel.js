@@ -11,9 +11,9 @@ const getUsuarioLogin = async(newLogin) => {
     
     //return usuario + " | " + clave
 
-    const datosUsu = await Login.findOne({ "usuario": usuario, "clave": password }).exec()
+    const datosUsu = await Login.findOne({ usuario: usuario, clave: password }).exec()
     console.log(datosUsu)
-    
+
     if(!datosUsu){
         throw {
             status: 404,

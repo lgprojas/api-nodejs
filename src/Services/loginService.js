@@ -1,10 +1,10 @@
 const LoginModel = require('../Models/loginModel');
 const { encrypt } = require('../Helpers/handleBcrypt');
 
-const createNewLogin = (newLogin) => {
+const createNewLogin = async(newLogin) => {
 
     const {usuario, clave} = newLogin
-    const password = encrypt(clave);
+    const password = await encrypt(clave);
 
     const datosUsu = {
         usuario,
@@ -12,7 +12,7 @@ const createNewLogin = (newLogin) => {
     }
 
     try{
-        const getUsuario = LoginModel.getUsuarioLogin(datosUsu);
+        const getUsuario = await LoginModel.getUsuarioLogin(datosUsu);
         return getUsuario;
     } catch (error) {
         throw error;
