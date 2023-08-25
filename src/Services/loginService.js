@@ -11,8 +11,13 @@ const createNewLogin = (newLogin) => {
         password
     }
 
-    const getUsuario = LoginModel.getUsuarioLogin(datosUsu);
-    return getUsuario;
+    try{
+        const getUsuario = LoginModel.getUsuarioLogin(datosUsu);
+        return getUsuario;
+    } catch (error) {
+        throw error;
+    }
+
 };
 
 const createNewToken = (datosUsu) => {
