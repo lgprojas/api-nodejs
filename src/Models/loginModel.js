@@ -7,21 +7,14 @@ const getUsuarioLogin = async(req, res) => {
     
     const { usuario, clave } = req
 
-    const password = await encrypt(clave);
+    //const password = await encrypt(clave);
     //console.log(usuario)
     //console.log(clave)
     
     //return usuario + " | " + clave
 
     
-    const datosUsu = await Login.findOne({ usuario: usuario }, function (err, data) {
-        if(err){
-            return err
-        }else{
-            console.log(data)
-            res.send(data);
-        }
-    });
+    const datosUsu = await Login.findOne({ usuario: usuario });
     return datosUsu
     if(datosUsu === null){
         throw {
