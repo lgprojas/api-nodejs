@@ -5,18 +5,26 @@ const getUsuarioLogin = async(newLogin) => {
 
     //return "loginModel"
     
-    const { usuario, clave } = newLogin
+    const { usuario, password } = newLogin
     //console.log(usuario)
     //console.log(clave)
     
     //return usuario + " | " + clave
-    const password = await encrypt(clave);
-    
+
+    const datosUsu = await Login.findOne({ usuario: usuario, clave: password }).exec()
+
+    if(!datosUsu){
+        throw {
+            status: 404,
+            message: "User not found"
+        }
+    }
+
     try{
         
         
     
-    const datosUsu = await Login.findOne({ usuario: usuario, clave: password }).exec()
+    
     /*const { email } = datosUsu        
     console.log(email)
     return datosUsu
@@ -31,12 +39,6 @@ const getUsuarioLogin = async(newLogin) => {
         throw { status: error?.status || 500, message: error?.message || error };
     }
   */
-        if(!datosUsu){
-            throw {
-                status: 404,
-                message: "User not found"
-            }
-        }
 
         const checkPassword = compare(clave, datosUsu.clave)
         

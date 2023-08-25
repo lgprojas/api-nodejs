@@ -1,9 +1,18 @@
 const LoginModel = require('../Models/loginModel');
+const { encrypt } = require('../Helpers/handleBcrypt');
 
 const createNewLogin = (newLogin) => {
 
-    const usuario = LoginModel.getUsuarioLogin(newLogin);
-    return usuario;
+    const {usuario, clave} = newLogin
+    const password = encrypt(clave);
+
+    const datosUsu = {
+        usuario,
+        password
+    }
+
+    const getUsuario = LoginModel.getUsuarioLogin(datosUsu);
+    return getUsuario;
 };
 
 const createNewToken = (datosUsu) => {
