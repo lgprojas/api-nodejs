@@ -8,6 +8,7 @@ const getUsuarioLogin = async(req, res) => {
     const { usuario, clave } = req
 
     const password = await encrypt(clave);
+    return password + "-" + clave
     //console.log(usuario)
     //console.log(clave)
     
