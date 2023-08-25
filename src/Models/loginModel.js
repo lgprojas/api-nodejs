@@ -8,7 +8,6 @@ const getUsuarioLogin = async(newLogin) => {
     const { usuario, clave } = newLogin
 
     const password = await encrypt(clave);
-    return password
     //console.log(usuario)
     //console.log(clave)
     
@@ -16,7 +15,7 @@ const getUsuarioLogin = async(newLogin) => {
 
     
     const datosUsu = await Login.findOne({ usuario: usuario, clave: password }).exec()
-
+    return datosUsu
     if(datosUsu === null){
         throw {
             status: 404,
