@@ -59,7 +59,7 @@ const loginUsu = async(req, res) => {
 
 const refreshToken = async(req, res) => {
 
-
+    //const {bearer, refreshToken} = req.headers.authorization.split(" ");
     const refreshToken = req.headers.authorization.split(" ")[1];
 
     res.status(400).json({ data: refreshToken }); 
