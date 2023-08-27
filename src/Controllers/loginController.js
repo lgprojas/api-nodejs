@@ -62,6 +62,8 @@ const refreshToken = async(req, res) => {
 
     const refreshToken = req.headers.authorization.split(" ")[1];
 
+    res.status(400).json({ message: refreshToken }); 
+
     if(!(refreshToken)){
         res.status(400).json({ message: "[Refresh] Something goes wrong!" });
     }
