@@ -82,9 +82,11 @@ const refreshToken = async(req, res) => {
         if(datosUsu){
             const { _id, nombre, email} = datosUsu
 
-            const newToken = generateToken({id: _id, email: email})
+            const token = generateToken({id: _id, email: email})
 
-            res.status(200).json({ message: "OK", token: newToken });
+            const datosUsuToken = {id: _id, nombre, email, token}
+    
+        res.status(200).send({ message: "OK", data: datosUsuToken });
         }
 
     } catch (error) {
