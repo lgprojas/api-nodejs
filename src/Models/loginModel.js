@@ -1,10 +1,9 @@
 const {Login} = require('../Schemas/usuarioSchema');
+const {Token} = require('../Schemas/tokenSchema');
 const { compare } = require('../Helpers/handleBcrypt');
 
 const getUsuarioLogin = async(req, res) => {
 
-    //return "loginModel"
-    
     const { usuario, clave } = req
 
     const datosUsu = await Login.findOne({ usuario: usuario });
@@ -17,24 +16,6 @@ const getUsuarioLogin = async(req, res) => {
     }
 
     try{
-        
-        
-    
-    
-    /*const { email } = datosUsu        
-    console.log(email)
-    return datosUsu
-    }catch (error) {
-        throw { status: error?.status || 500, message: error?.message || error };
-    }*/
-  /*
-    try{
-        
-        
-    } catch (error) {
-        throw { status: error?.status || 500, message: error?.message || error };
-    }
-  */
 
         const checkPassword = await compare(clave, datosUsu.clave)
         
@@ -56,13 +37,9 @@ const getUsuarioLogin = async(req, res) => {
         throw { status: error?.status || 500, message: error?.message || error };
     }
 
-    
-    
 }
 
 const newRefreshToken = async(dUsu) => {
-
-    
 
     try{
 
@@ -82,8 +59,32 @@ const newRefreshToken = async(dUsu) => {
     } catch (error) {
         throw { status: error?.status || 500, message: error?.message || error };
     }
+}
+
+const saveTokenBD = async(refreshToken) => {
+
+    try{
+
+        const existe = await Login.findOne({ token: refreshToken}).exec()
+
+        if(existe){
+            throw {
+                status: 409,
+                message: "RefreshToken exist"
+            }
+        }
+
+        const tokenSave = await new Token({ 
+            token: refreshToken,
+        }).save()
+
+        return tokenSave
+
+    } catch (error) {
+        throw { status: error?.status || 500, message: error?.message || error };
+    }
 
 
 }
 
-module.exports = { getUsuarioLogin, newRefreshToken }
+module.exports = { getUsuarioLogin, saveTokenBD, newRefreshToken }

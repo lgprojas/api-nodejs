@@ -43,6 +43,19 @@ const loginUsu = async(req, res) => {
         const token = generateToken({id: _id, email: email})
         const refreshToken = generateRefreshToken({id: _id, email: email})
     
+        const saveTokenBD = await loginService.saveTokenBD(refreshToken)
+        if(!saveTokenBD){
+            res
+            .status(400)
+            .send({
+                status: "FAILED",
+                data: {
+                error:
+                    "RefreshToken couldn't save",
+                },
+            });
+            return;
+        }
     
         const datosUsuToken = {nombre, email, token, refreshToken}
     

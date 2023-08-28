@@ -12,10 +12,21 @@ const createNewLogin = (newLogin) => {
 
 };
 
+const saveTokenBD = (refreshToken) => {
+
+    try{
+        const getResult = LoginModel.saveTokenBD(refreshToken);
+        return getResult;
+    } catch (error) {
+        throw error;
+    }
+
+};
+
 const createNewToken = (datosUsu) => {
 
     const newRefreshToken = LoginModel.newRefreshToken(datosUsu);
     return newRefreshToken;
 };
 
-module.exports = { createNewLogin, createNewToken }
+module.exports = { createNewLogin, saveTokenBD, createNewToken }
