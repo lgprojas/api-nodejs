@@ -29,4 +29,15 @@ const createNewToken = (datosUsu) => {
     return newRefreshToken;
 };
 
-module.exports = { createNewLogin, saveTokenBD, createNewToken }
+const signOut = (refreshToken) => {
+
+    try{
+        const getResult = LoginModel.signOut(refreshToken);
+        return getResult;
+    } catch (error) {
+        throw error;
+    }
+
+};
+
+module.exports = { createNewLogin, saveTokenBD, createNewToken, signOut }

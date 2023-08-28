@@ -83,8 +83,35 @@ const saveTokenBD = async(refreshToken) => {
     } catch (error) {
         throw { status: error?.status || 500, message: error?.message || error };
     }
-
-
 }
 
-module.exports = { getUsuarioLogin, saveTokenBD, newRefreshToken }
+const signOut = async(refreshToken) => {
+
+    try{
+
+        const existe = await Token.findOne({ token: refreshToken}).exec()
+
+        if(!existe){
+            throw {
+                status: 409,
+                message: "RefreshToken does not exist"
+            }
+        }
+
+        const tokenDelete = await Token.findOneAndDelete({ token: refreshToken })
+
+        if(!tokenDelete){
+            throw {
+                status: 409,
+                message: "RefreshToken could not been deleted"
+            }
+        }
+
+        return
+
+    } catch (error) {
+        throw { status: error?.status || 500, message: error?.message || error };
+    }
+}
+
+module.exports = { getUsuarioLogin, saveTokenBD, newRefreshToken, signOut }

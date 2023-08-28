@@ -108,4 +108,32 @@ const refreshToken = async(req, res) => {
     }
 }
 
-module.exports = {loginUsu, refreshToken}
+const signOut = async(req, res) => {
+
+    //const {bearer, refreshToken} = req.headers.authorization.split(" ");
+    const refreshToken = req.headers.authorization.split(" ")[1];
+
+    if(!(refreshToken)){
+        res.status(400).json({ message: "[Refresh] Something goes wrong!" });
+    }
+
+    const verifyResult = verifyRefreshToken(refreshToken);
+
+    if(!(verifyResult)){
+        res.status(400).json({ message: "[Refresh] RefreshToken incorrect!" });
+    }
+
+    try {
+
+        const datosUsu = await loginService.signOut(verifyResult);
+
+        if(datosUsu){   
+            res.status(200).send({ message: "OK" });
+        }
+
+    } catch (error) {
+        return res.status(400).json({ message: "[Refresh] Something goes wrong!!" });
+    }
+}
+
+module.exports = {loginUsu, refreshToken, signOut}
