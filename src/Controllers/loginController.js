@@ -112,7 +112,7 @@ const signOut = async(req, res) => {
 
     //const {bearer, refreshToken} = req.headers.authorization.split(" ");
     const refreshToken = req.headers.authorization.split(" ")[1];
-
+    console.log(refreshToken)
     if(!(refreshToken)){
         res.status(400).json({ message: "[Refresh] Something goes wrong!" });
     }
@@ -125,7 +125,7 @@ const signOut = async(req, res) => {
 
     try {
 
-        const datosUsu = await loginService.signOut(verifyResult);
+        const datosUsu = await loginService.signOut(refreshToken);
 
         if(datosUsu){   
             res.status(200).send({ message: "OK" });
