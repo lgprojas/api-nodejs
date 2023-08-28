@@ -89,7 +89,7 @@ const signOut = async(refreshToken) => {
 
     try{
 
-        const existe = await Token.findOne({ token: refreshToken}).exec()
+        const existe = await Token.findOne({ token: refreshToken })
 
         if(!existe){
             throw {
