@@ -25,7 +25,7 @@ const generateRefreshToken = ({ id, email }) => {
     const refreshToken = jwt.sign(
         {userId:idUser, email:email},
         refresh_token_key,
-        {expiresIn: "2h"}
+        {expiresIn: "5s"}
     );
     return refreshToken
 }
