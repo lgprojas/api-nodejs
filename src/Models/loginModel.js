@@ -65,7 +65,7 @@ const saveTokenBD = async(refreshToken) => {
 
     try{
 
-        const existe = await Login.findOne({ token: refreshToken}).exec()
+        const existe = await Token.findOne({ token: refreshToken}).exec()
 
         if(existe){
             throw {
