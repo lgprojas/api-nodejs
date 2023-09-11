@@ -38,10 +38,11 @@ const verifyToken = (req, res, next) => {
     
     if(token==null){
         //return res.status(401).send("Token requerido");
-        throw {
-            status: 401,
-            message: 'Token requerido'
-        };
+        res.status(401)
+           .send({
+                status: "Failed",
+                data: { error: "Token requerido"},
+           });
     }
 
     jwt.verify(token, token_key, (err, user) => {
