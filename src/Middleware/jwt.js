@@ -36,7 +36,7 @@ const verifyToken = (req, res, next) => {
     const token = authHeader && authHeader.split(' ')[1];
     console.log(authHeader);
     
-    if(token==null){}
+    if(token==null){
         //return res.status(401).send("Token requerido");
         throw {
             status: 401,
