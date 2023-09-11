@@ -36,8 +36,13 @@ const verifyToken = (req, res, next) => {
     const token = authHeader && authHeader.split(' ')[1];
     console.log(authHeader);
     
-    if(token==null)
-        return res.status(401).send("Token requerido");
+    if(token==null){}
+        //return res.status(401).send("Token requerido");
+        throw {
+            status: 401,
+            message: 'Token requerido'
+        };
+    }
 
     jwt.verify(token, token_key, (err, user) => {
         if(err) return res.status(403).send('Token inválido');
