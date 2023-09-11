@@ -46,7 +46,12 @@ const verifyToken = (req, res, next) => {
     }
 
     jwt.verify(token, token_key, (err, user) => {
-        if(err) return res.status(403).send('Token inválido');
+        if(err){
+            res.send({
+                status: "Failed",
+                data: { error: "Token inválido"},
+           });
+        }
         console.log(user);
         req.user = user;
         next();
