@@ -138,5 +138,4 @@ module.exports = {
     insertUsu,
     updateUsu,
     deleteUsu,
-    deleteUsu,
 }
