@@ -49,7 +49,7 @@ const insertRole = async(newRole) => {
         //Usuario.init();
         
         const datosNewRole = await new Role({ 
-            nom_role: newRole.nom,
+            nom_role: nom,
         }).save()
         
         //await datosNewUser.save();
