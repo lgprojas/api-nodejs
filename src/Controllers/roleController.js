@@ -42,7 +42,7 @@ const insertRole = async(req, res) => {
 
     const { body } = req;
     if (
-        !body.nombre
+        !body.nom
     ) {
          res
         .status(400)
