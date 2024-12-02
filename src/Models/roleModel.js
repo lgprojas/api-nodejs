@@ -86,12 +86,12 @@ const updateRole = async(idRole, newDatos) => {
         }
 
         const datosRole = {
-                nom,
+                nom_role,
         }
         
         const datosRol = await Role.updateOne(
                 {"_id": id},
-                {$set : datosRole},
+                {$set: datosRole},
             );
 
         return datosRole;
