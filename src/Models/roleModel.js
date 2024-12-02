@@ -86,7 +86,7 @@ const updateRole = async(idRole, newDatos) => {
         }
 
         const datosRole = {
-                nom_role,
+                nom_role: nom,
         }
         
         const datosRol = await Role.updateOne(
