@@ -29,11 +29,11 @@ const getRole = async(req, res) => {
         return;
     }
     
-    const { nom } = allDatosRole
+    const { nom_role } = allDatosRole
 
     //aquí podría agregar el token a la session
 
-    const datosRole = {nom}
+    const datosRole = {nom_role}
 
     res.status(201).send({ status: "OK", data: datosRole });
 }
