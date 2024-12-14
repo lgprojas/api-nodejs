@@ -22,6 +22,7 @@ const v1Router = require("./src/v1/Routes");
 const v1RouterLogin = require("./src/v1/Routes/loginRoutes");
 const v1RouterUsu = require("./src/v1/Routes/usuarioRoutes");
 const v1RouterRole = require("./src/v1/Routes/roleRoutes");
+const v1RouterPermiso = require("./src/v1/Routes/permisoRoutes");
 /*
 const v1RouterProd = require("./v1/routes/productoRoutes");
 const ProductoModel = require("./Schemas/productoModel");
@@ -186,6 +187,7 @@ app.delete("/producto/deleteProd/:_id", async(req, res) => {
 app.use("/v1/loginRoutes", v1RouterLogin);
 app.use("/v1/usuRoutes", v1RouterUsu);
 app.use("/v1/roleRoutes", v1RouterRole);
+app.use("/v1/permRoutes", v1RouterPermiso);
 
 /*
 app.use("/v1/productoRoutes", verifyToken, v1RouterProd);//sólo una vez y reacciona depende del Method o parametros en GET(:id)
